@@ -4,7 +4,6 @@ const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'movieAPI',
-    password: '',
     port: 5432
 })
 
