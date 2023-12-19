@@ -25,11 +25,11 @@ app.get('/api/movies/', async(req, res) => {
 
 app.get('/api/movies/:id', async(req, res) => {
     try {
-         const result = await pool.query('SELECT * FROM movies where movieId = $1',[req.params.id]);
+         const result = await pool.query('SELECT * FROM movies where movieid = $1',[req.params.id]);
          if(result.rows.length > 0){
             res.status(200).json(result.rows);
         }else{
-            res.status(404).json({"message":"No resource found based on the movieId provided"})
+            res.status(404).json({"message":"No resource found based on the movieid provided"})
         }    
     } catch (error) {
         res.status(500).send(error.message)
@@ -38,8 +38,8 @@ app.get('/api/movies/:id', async(req, res) => {
 
 app.delete('/api/movies/:id', async(req, res) => {
     try {
-        await pool.query('DELETE FROM movies where movieId = $1',[req.params.id]);
-        const links = await pool.query('SELECT * FROM  favlinks');
+        await pool.query('DELETE FROM movies where movieid = $1',[req.params.id]);
+        const links = await pool.query('SELECT * FROM  movies');
         res.status(200).json(links.rows);  
     } catch (error) {
         res.status(500).send(error.message)
@@ -48,8 +48,8 @@ app.delete('/api/movies/:id', async(req, res) => {
 
 app.put('/api/movies/:id', async(req, res) => {
     try {
-        const { name, url } = req.body
-        await pool.query('UPDATE movies SET title=$1, genre=$2 where movieId=$3 RETURNING *',[title,genre,req.params.id]); 
+        const { title, genre, comment ,postername, ratings } = req.body
+        await pool.query('UPDATE movies SET title=$1, genre=$2, comment=$3, postername=$4, ratings=$4 where movieid=$6 RETURNING *',[title, genre, comment ,postername, ratings,req.params.id]); 
         const links = await pool.query('SELECT * FROM  movies');
         res.status(200).json(links.rows);
         
@@ -60,8 +60,8 @@ app.put('/api/movies/:id', async(req, res) => {
 
 app.post('/api/movies', async(req, res) => {
     try {
-        const { title, genre } = req.body
-        const result = await pool.query('INSERT INTO movies(title,genre) values($1, $2) RETURNING *',[title,genre]); 
+        const { title, genre, comment ,postername, ratings } = req.body
+        const result = await pool.query('INSERT INTO movies(title,genre,comment,postername,ratings) values($1,$2,$3,$4,$5) RETURNING *',[title,genre,comment,postername,ratings]); 
         res.status(200).json(result.rows[0]); 
           
     } catch (error) {
