@@ -3,7 +3,7 @@ import DataTable from "react-data-table-component";
 
 const Table = ({columns,data}: props) => {
   return (
-    <DataTable columns={columns} data={data} fixedHeader pagination></DataTable>
+    <DataTable className="table table-striped" columns={columns} data={data} fixedHeader pagination></DataTable>
   );
 };
 
