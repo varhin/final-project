@@ -9,7 +9,6 @@ app.use(cors());
 const PORT = 4000
 
 
-
 app.get('/api/movies/', async(req, res) => {
     try {
          const result = await pool.query('SELECT * FROM movies');
