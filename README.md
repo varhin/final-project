@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project is a movie sharing app that allows users to share and explore information about their favorite movies.
+This project is a movie sharing app that allows users to share and explore information about the movies they have watched.
 
 ## Getting Started
 
