@@ -9,9 +9,8 @@ const Form = () => {
         genre: "",
         comment: "",
         postername: "",
-        ratings: 0,
+        ratings: "",
     });
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -39,7 +38,6 @@ const Form = () => {
             ratings: 0,
         });
     };
-
 
     const handleDataChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
