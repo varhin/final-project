@@ -9,6 +9,7 @@ import Form from './components/Form';
 function App() {
 
   const [movies, setMovies] = useState([]);
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,17 +30,10 @@ function App() {
     };
     fetchData();
   }, []);
+
   return (
     <>
       <Header /><br />
-      <div style={{ padding: "10px", display:"flex", flexDirection:"row", gap:"10px", alignItems:"center", justifyContent:"center"}}>
-        <div className="form-group " style={{ padding: "10px"}}>
-          <input type="text" name="genre" className="form-control" id="" placeholder="Search by genre...." required />
-        </div>
-        <div className="form-group " style={{ padding: "10px"}}>
-          <input type="text" name="title" className="form-control" id="" placeholder="Search by title...." required />
-        </div>
-      </div>
       <div className="container" style={{ width: "100vw", display: "flex", flexDirection: "row", rowGap: 10 }}>
         <div className="container" style={{ width: "30vw", marginRight: "20px" }}>
           <Form />
