@@ -43,7 +43,7 @@ const Table = ({columns,data}) => {
          <button className="btn btn-primary" onClick={handleGenreSearch}>Search</button>
          </div>
          <div className="form-group " style={{ padding: "10px"}}>
-         <button className="btn btn-secondary" onClick={handleReload}>Reload</button>
+         <button className="btn btn-secondary" onClick={handleReload}>Reload Table Data</button>
          </div>
       </div>
       <DataTable className="table table-striped" columns={columns} data={tableData} fixedHeader pagination></DataTable>
