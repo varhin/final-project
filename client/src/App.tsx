@@ -34,11 +34,11 @@ function App() {
   return (
     <>
       <Header /><br />
-      <div className="container" style={{ width: "100vw", display: "flex", flexDirection: "row", rowGap: 10 }}>
-        <div className="container" style={{ width: "30vw", marginRight: "20px" }}>
+      <div className="container" style={{ width: "120vw", display: "flex", flexDirection: "row", rowGap: 10 }}>
+        <div className="container" style={{ width: "40vw", marginRight: "20px" }}>
           <Form />
         </div>
-        <div className="right" style={{ width: "70vw", marginLeft: "10px" }}>
+        <div className="right" style={{ width: "80vw", marginLeft: "10px" }}>
           <Home movies={movies} />
         </div>
       </div>
